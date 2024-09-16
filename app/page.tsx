@@ -3,7 +3,7 @@ import HeroSection from "./components/section/HeroSection";
 import BenefitsSection from "./components/section/BenefitsSection";
 import TumblerGrid from "./components/section/TumblerGrid";
 import { PrismaClient, Product } from '@prisma/client'
-import FooterSection from "./components/section/Footer";
+
 
 
 // Add this type definition

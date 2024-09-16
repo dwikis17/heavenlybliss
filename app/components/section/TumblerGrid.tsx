@@ -50,7 +50,7 @@ const TumblerGrid: React.FC<{ products: TumblerItem[] }> = ({ products }) => {
     return (
         <section className="bg-[#F7F6F3] py-16 px-4">
             <div className="max-w-6xl mx-auto">
-                <h2 className="text-3xl font-bold text-center mb-12">Our Tumbler Collection</h2>
+                <h2 className="text-3xl font-bold text-center mb-12">Koleksi Tumbler Kami</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {products.map((tumbler) => (
                         <div

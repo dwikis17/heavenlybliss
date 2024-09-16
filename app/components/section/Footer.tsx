@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
             <div className="max-w-6xl mx-auto px-4 py-12 md:py-16">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div className="col-span-1 md:col-span-2">
-                        <h2 className="text-2xl font-bold mb-4">Tumbler Shop</h2>
+                        <h2 className="text-2xl font-bold mb-4">Tumbler Ku</h2>
                         <p className="text-gray-600 mb-4">Elevate your drink experience with our premium, eco-friendly tumblers.</p>
                         <div className="flex space-x-4">
                             {/* <a href="#" className="text-gray-400 hover:text-[#FF5733]">
@@ -25,8 +25,8 @@ const Footer: React.FC = () => {
                         <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
                         <ul className="space-y-2">
                             <li><a href="/" className="text-gray-600 hover:text-[#FF5733]">Home</a></li>
-                            <li><a href="/#list" className="text-gray-600 hover:text-[#FF5733]">Shop</a></li>
-                            <li><a href="#" className="text-gray-600 hover:text-[#FF5733]">About Us</a></li>
+                            {/* <li><a href="/#list" className="text-gray-600 hover:text-[#FF5733]">Shop</a></li> */}
+                            {/* <li><a href="#" className="text-gray-600 hover:text-[#FF5733]">About Us</a></li> */}
                             <li><a href="https://wa.me/+6285121004010"
                                 target="_blank"
                                 rel="noopener noreferrer" className="text-gray-600 hover:text-[#FF5733]">Contact</a></li>
