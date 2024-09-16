@@ -2,10 +2,27 @@
 import React, { useState } from 'react'
 import { ChevronLeft, ChevronRight, Minus, Plus, MessageCircle, Home } from 'lucide-react'
 import Link from 'next/link'
+import ReactPixel from 'react-facebook-pixel'
+
+
 
 const ProductDetail: React.FC<{ product: any }> = ({ product }) => {
+    React.useEffect(() => {
+        ReactPixel.init('1036336657769911', undefined, { autoConfig: true, debug: false });
+        ReactPixel.pageView();
+    }, []);
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
     const [quantity, setQuantity] = useState(1)
+
+    const handleWhatsAppClick = () => {
+        ReactPixel.track('Contact', {
+            content_name: product.name,
+            content_category: product.category,
+            value: product.price,
+            currency: 'IDR',
+        })
+        console.log('WhatsApp contact initiated for:', product.name)
+    }
 
     const nextImage = () => {
         setCurrentImageIndex((prevIndex) =>
@@ -80,11 +97,12 @@ const ProductDetail: React.FC<{ product: any }> = ({ product }) => {
                         </button>
                     </div> */}
 
-                    {/* WhatsApp Button */}
+
                     <a
                         href="https://wa.me/+6285121004010"
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={handleWhatsAppClick}
                         className="flex items-center text-center justify-center space-x-2 bg-[#25D366] text-white px-6 py-3 rounded-full transition duration-300 ease-in-out hover:bg-[#1EBF55]"
                     >
                         <MessageCircle className="w-5 h-5" />
