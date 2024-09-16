@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
                         <h2 className="text-2xl font-bold mb-4">Tumbler Shop</h2>
                         <p className="text-gray-600 mb-4">Elevate your drink experience with our premium, eco-friendly tumblers.</p>
                         <div className="flex space-x-4">
-                            <a href="#" className="text-gray-400 hover:text-[#FF5733]">
+                            {/* <a href="#" className="text-gray-400 hover:text-[#FF5733]">
                                 <Facebook className="w-6 h-6" />
                             </a>
                             <a href="#" className="text-gray-400 hover:text-[#FF5733]">
@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
                             </a>
                             <a href="#" className="text-gray-400 hover:text-[#FF5733]">
                                 <Twitter className="w-6 h-6" />
-                            </a>
+                            </a> */}
                         </div>
                     </div>
                     <div>
@@ -27,7 +27,9 @@ const Footer: React.FC = () => {
                             <li><a href="/" className="text-gray-600 hover:text-[#FF5733]">Home</a></li>
                             <li><a href="/#list" className="text-gray-600 hover:text-[#FF5733]">Shop</a></li>
                             <li><a href="#" className="text-gray-600 hover:text-[#FF5733]">About Us</a></li>
-                            <li><a href="#" className="text-gray-600 hover:text-[#FF5733]">Contact</a></li>
+                            <li><a href="https://wa.me/+6285121004010"
+                                target="_blank"
+                                rel="noopener noreferrer" className="text-gray-600 hover:text-[#FF5733]">Contact</a></li>
                         </ul>
                     </div>
                     <div>
@@ -50,7 +52,7 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
                 <div className="mt-8 pt-8 border-t border-gray-200 text-center text-gray-500">
-                    <p>&copy; 2023 Tumbler Shop. All rights reserved.</p>
+                    <p>&copy; 2024 Tumbler Ku. All rights reserved.</p>
                 </div>
             </div>
         </footer>

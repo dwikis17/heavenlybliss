@@ -22,7 +22,7 @@ export default async function Home() {
     detailImageUrl: product.image2
   }))
 
-  console.log(mappedProducts, 'haiii')
+
 
   return (
     <>
