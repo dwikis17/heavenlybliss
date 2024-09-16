@@ -1,19 +1,15 @@
-
 import HeroSection from "./components/section/HeroSection";
 import BenefitsSection from "./components/section/BenefitsSection";
 import TumblerGrid from "./components/section/TumblerGrid";
 import { PrismaClient, Product } from '@prisma/client'
 import { Suspense } from "react";
 
-
-
-// Add this type definition
 type MappedProduct = Omit<Product, 'image1' | 'image2'> & {
   imageUrl: string;
   detailImageUrl: string;
 };
 
-async function ProductGrid() {
+async function getProducts() {
   const prisma = new PrismaClient()
   const products = await prisma.product.findMany()
 
@@ -23,10 +19,11 @@ async function ProductGrid() {
     detailImageUrl: product.image2
   }))
 
-  return <TumblerGrid products={mappedProducts} />;
+  return mappedProducts;
 }
 
 export default async function Home() {
+  const products = await getProducts();
 
   return (
     <>
@@ -38,10 +35,11 @@ export default async function Home() {
       </section>
       <section id='list'>
         <Suspense fallback={<div>Loading...</div>}>
-          <ProductGrid />
+          <TumblerGrid products={products} />
         </Suspense>
       </section>
-
     </>
   );
 }
+
+export const revalidate = 60; // revalidate this page every 60 seconds
