@@ -30,9 +30,9 @@ export default async function Home() {
       <section id='home'>
         <HeroSection />
       </section>
-      <section>
+      {/* <section>
         <BenefitsSection />
-      </section>
+      </section> */}
       <section id='list'>
         <Suspense fallback={<div>Loading...</div>}>
           <TumblerGrid products={products} />

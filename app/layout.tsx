@@ -16,8 +16,9 @@ const geistMono = localFont({
   weight: "100 900",
 });
 export const metadata: Metadata = {
-  title: "Tumbler Ku",
-  description: "Temukan koleksi tumbler premium kami yang ramah lingkungan, dirancang untuk gaya hidup Anda yang dinamis. Belanja sekarang dan nikmati minuman Anda dengan gaya!"
+  title: "Heavenly Bliss",
+  description: "Find your perfect lingerie with Heavenly Bliss. Explore our collection of beautiful, comfortable, and sexy lingerie that will make you feel confident and beautiful.",
+
 };
 
 
@@ -28,7 +29,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <link rel="icon" href={logo.src} />
+      <head>
+        {/* <link
+          rel="icon"
+          href="/public/assets/logo.jpg "
+          type="image/jpg"
+          sizes="32x32"
+        /> */}
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

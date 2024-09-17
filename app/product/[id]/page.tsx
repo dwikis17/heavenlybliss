@@ -9,9 +9,12 @@ export default async function ProductPage({ params }: { params: { id: string } }
             id: parseInt(params.id)
         }
     })
+
+    const mappedSubtext: string[] = product?.subtext ? product.subtext.split(',').map((detail: string) => detail.trim()) : []
     const mappedProduct = {
         ...product,
-        images: [product?.image1, product?.image2, product?.image3, product?.image4]
+        images: [product?.image1, product?.image2, product?.image3, product?.image4],
+        subtext: mappedSubtext
     }
 
     return <ProductDetail product={mappedProduct} />

@@ -4,6 +4,9 @@ import { Star, StarHalf } from 'lucide-react'
 import { StaticImageData } from 'next/image'
 import item from '@/app/public/assets/item.png'
 import test from '@/app/public/assets/test.jpg'
+import { motion } from "framer-motion"
+import Link from 'next/link'
+import Image from 'next/image'
 
 
 
@@ -44,43 +47,56 @@ const StarRating: React.FC<{ rating: number }> = ({ rating }) => {
 }
 
 const TumblerGrid: React.FC<{ products: TumblerItem[] }> = ({ products }) => {
-    console.log(products, 'products')
+
     const [hoveredId, setHoveredId] = useState<number | null>(null)
 
     return (
-        <section className="bg-[#F7F6F3] py-16 px-4">
+        <section className="bg-gradient-to-r from-pink-50 to-pink-100 py-16 px-4">
             <div className="max-w-6xl mx-auto">
-                <h2 className="text-3xl font-bold text-center mb-12">Koleksi Tumbler Kami</h2>
+                <motion.h2
+                    className="text-3xl font-bold text-center mb-12 text-pink-800"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                >
+                    Our Heavenly Collection
+                </motion.h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {products.map((tumbler) => (
-                        <div
-                            key={tumbler.id}
-                            className="bg-white p-4 transition-all duration-300 ease-in-out "
-                            onMouseEnter={() => setHoveredId(tumbler.id)}
+                    {products.map((product) => (
+                        <motion.div
+                            key={product.id}
+                            className="bg-white p-4 rounded-lg shadow-md transition-all duration-300 ease-in-out hover:shadow-lg"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.5 }}
+                            whileHover={{ scale: 1.05 }}
+                            onMouseEnter={() => setHoveredId(product.id)}
                             onMouseLeave={() => setHoveredId(null)}
-                            onClick={() => window.location.href = `/product/${tumbler.id}`}
                         >
-                            <div className="relative aspect-square mb-4 overflow-hidden">
-                                <img
-                                    src={hoveredId === tumbler.id
-                                        ? (typeof tumbler.detailImageUrl === 'string' ? tumbler.detailImageUrl : tumbler.detailImageUrl.src)
-                                        : (typeof tumbler.imageUrl === 'string' ? tumbler.imageUrl : tumbler.imageUrl.src)
-                                    }
-                                    alt={tumbler.name}
-                                    className="w-full h-full object-cover transition-opacity duration-300"
-                                />
-                            </div>
-                            <h3 className="text-lg font-medium mb-2">{tumbler.name}</h3>
-                            <div className="flex justify-between items-center mb-2">
-                                <span className="text-lg font-semibold">
-                                    {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(tumbler.price)}
-                                </span>
-                                <StarRating rating={tumbler.rating} />
-                            </div>
-                            {/* <button className="w-full bg-[#FF5733] text-white py-2 rounded-sm hover:bg-[#E64A2E] transition-colors text-sm">
-                                Details
-                            </button> */}
-                        </div>
+                            <Link href={`/product/${product.id}`}>
+                                <div className="relative aspect-square mb-4 overflow-hidden rounded-md">
+                                    <img
+                                        src={hoveredId === product.id
+                                            ? (typeof product.detailImageUrl === 'string' ? product.detailImageUrl : product.detailImageUrl.src)
+                                            : (typeof product.imageUrl === 'string' ? product.imageUrl : product.imageUrl.src)
+                                        }
+                                        alt={product.name}
+
+                                        className="transition-opacity duration-300"
+                                    />
+                                </div>
+                                <h3 className="text-lg font-medium mb-2 text-pink-700">{product.name}</h3>
+                                <div className="flex justify-between items-center mb-2">
+                                    <span className="text-lg font-semibold text-pink-600">
+                                        {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(product.price)}
+                                    </span>
+                                    <StarRating rating={product.rating} />
+                                </div>
+                                <button className="w-full bg-pink-500 text-white py-2 rounded-md hover:bg-pink-600 transition-colors text-sm">
+                                    View Details
+                                </button>
+                            </Link>
+                        </motion.div>
                     ))}
                 </div>
             </div>
