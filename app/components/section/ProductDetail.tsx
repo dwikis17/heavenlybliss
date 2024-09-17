@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 const ProductDetail: React.FC<{ product: any }> = ({ product }) => {
     React.useEffect(() => {
-        ReactPixel.init('1036336657769911', undefined, { autoConfig: true, debug: false });
+        ReactPixel.init('555810740108543', undefined, { autoConfig: true, debug: false });
         ReactPixel.pageView();
     }, []);
 
