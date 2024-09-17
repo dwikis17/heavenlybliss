@@ -13,7 +13,7 @@ const ProductDetail: React.FC<{ product: any }> = ({ product }) => {
     }, []);
 
     const handleWhatsAppClick = () => {
-        ReactPixel.track('Lead', {
+        ReactPixel.track('Contact', {
             content_name: product.name,
             content_category: product.category,
             value: product.price,
